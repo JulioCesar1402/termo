@@ -13,5 +13,5 @@ def create_words(data):
     db.words.insert_many(copy.deepcopy(data))
 
 
-def get_collection():
-    return db.words
+def find_words():
+    return list(db.words.find({}, {"_id": False}))
