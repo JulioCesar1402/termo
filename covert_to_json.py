@@ -1,6 +1,7 @@
 from database import find_words
 import json
 
+
 # ..source: https://www.geeksforgeeks.org/
 # ..    reading-and-writing-json-to-a-file-in-python/
 def covert_to_json():
