@@ -1,5 +1,6 @@
 import xmltodict
 import json
+from database import create_words
 
 
 class XmlImporter():
@@ -11,12 +12,40 @@ class XmlImporter():
             dict_file = xmltodict.parse(file.read())
             records = dict_file["dic"]["entry"]
             converted_to_dict = json.loads(json.dumps(records))
-            teste = []
+            list_with_five_len = []
             for i in list(converted_to_dict):
                 if len(i["@id"]) == 5:
-                    teste.append(i["@id"])
-            return teste
+                    list_with_five_len.append({"word": i["@id"]})
+            create_words(list_with_five_len)
+            return list_with_five_len
+
+
+def main():
+    XmlImporter().import_data("dicionarioXML/A.xml")
+    XmlImporter().import_data("dicionarioXML/B.xml")
+    XmlImporter().import_data("dicionarioXML/C.xml")
+    XmlImporter().import_data("dicionarioXML/D.xml")
+    XmlImporter().import_data("dicionarioXML/E.xml")
+    XmlImporter().import_data("dicionarioXML/F.xml")
+    XmlImporter().import_data("dicionarioXML/G.xml")
+    XmlImporter().import_data("dicionarioXML/H.xml")
+    XmlImporter().import_data("dicionarioXML/I.xml")
+    XmlImporter().import_data("dicionarioXML/J.xml")
+    XmlImporter().import_data("dicionarioXML/L.xml")
+    XmlImporter().import_data("dicionarioXML/M.xml")
+    XmlImporter().import_data("dicionarioXML/N.xml")
+    XmlImporter().import_data("dicionarioXML/O.xml")
+    XmlImporter().import_data("dicionarioXML/P.xml")
+    XmlImporter().import_data("dicionarioXML/Q.xml")
+    XmlImporter().import_data("dicionarioXML/R.xml")
+    XmlImporter().import_data("dicionarioXML/S.xml")
+    XmlImporter().import_data("dicionarioXML/T.xml")
+    XmlImporter().import_data("dicionarioXML/U.xml")
+    XmlImporter().import_data("dicionarioXML/V.xml")
+    XmlImporter().import_data("dicionarioXML/W.xml")
+    XmlImporter().import_data("dicionarioXML/X.xml")
+    XmlImporter().import_data("dicionarioXML/Z.xml")
 
 
 if __name__ == "__main__":
-    print(XmlImporter().import_data("dicionarioXML/A.xml"))
+    main()
